@@ -49,6 +49,18 @@ customersApp.factory('customersFactory', function () {
         return customers;
     };
 
+    factory.getCustomer = function (customerId) {
+
+        for (k = 0; k < customers.length; k++) {
+
+            if(customers[k].id == customerId)
+            {
+                return customers[k];
+                break;
+            }
+        }
+    };
+
     factory.addCustomer = function (firstname, lastname, city) {
         var newId = 0;
 

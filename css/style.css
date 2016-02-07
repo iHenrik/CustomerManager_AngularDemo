@@ -75,3 +75,8 @@
     font-size: 18px;
     padding-left: 0px;
 }
+
+.table .currency-td, .table .currency-th {
+    text-align: right;
+    padding-right: 15px;
+}
