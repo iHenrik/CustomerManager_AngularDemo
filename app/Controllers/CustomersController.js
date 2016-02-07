@@ -37,8 +37,8 @@ customersApp.factory('customersFactory', function () {
     var customers = [
         {id: 1, firstname: 'John', lastname: 'Smith', city: 'New York'},
         {id: 2, firstname: 'John', lastname: ' Doe', city: 'San Francisco'},
-        {id: 3, firstname: 'Tracy', lastname: ' Doe', city: 'Maine'},
-        {id: 4, firstname: 'William', lastname: ' Wallace', city: 'Wales'},
+        {id: 3, firstname: 'Tracy', lastname: ' Doe', city: 'Montreal'},
+        {id: 4, firstname: 'William', lastname: ' Wallace', city: 'Quebec'},
         {id: 5, firstname: 'Jack', lastname: ' Daniels', city: 'Miami'},
         {id: 6, firstname: 'Anna', lastname: ' Smith', city: 'Dallas'}
     ];
