@@ -1,0 +1,44 @@
+#customers .row{
+    margin-bottom: 30px;
+}
+
+.panel-border {
+    border-color: #201c1b;
+    border-radius: 0;
+}
+
+.panel > .panel-header {
+    background-color: #1e88e5;
+    border-radius: 0;
+}
+
+.panel-foreground {
+    color: white;
+}
+
+.delete-object {
+    float: right;
+    color: white;
+    padding: 12px;
+    margin: -12px -15px 0px 0px;
+}
+
+.delete-object:hover, .delete-object:active, .delete-object:focus {
+    color: #d2d2d2;
+    outline: none;
+    text-decoration: none;
+}
+
+.customer-data-list{
+    padding-left:0px;
+    margin: 0px;
+}
+
+.customer-data-list li{
+    list-style: none;
+    line-height: 25px;
+}
+
+.input-group-lg > .input-control-radius{
+    border-radius: 0px;
+}
