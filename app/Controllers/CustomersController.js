@@ -2,12 +2,18 @@
  * Created by ismol on 05/02/2016.
  */
 
-customersApp.controller('CustomersController', function ($scope, customersFactory) {
+customersApp.controller('CustomersController', function ($scope, customersFactory, ordersFactory) {
 
         Init();
 
         function Init() {
-            $scope.customers = customersFactory.getCustomers();
+            var tempCustomers = customersFactory.getCustomers();
+
+            for (i = 0; i < tempCustomers.length; i++) {
+                tempCustomers[i].orderCount = ordersFactory.getCustomerOrderCount(tempCustomers[i].id);
+            }
+
+            $scope.customers = tempCustomers;
         }
 
         $scope.addCustomer = function () {
@@ -53,8 +59,7 @@ customersApp.factory('customersFactory', function () {
 
         for (k = 0; k < customers.length; k++) {
 
-            if(customers[k].id == customerId)
-            {
+            if (customers[k].id == customerId) {
                 return customers[k];
                 break;
             }

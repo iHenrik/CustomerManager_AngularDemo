@@ -65,7 +65,10 @@
                 <div class="panel-body">
                     <ul class="customer-data-list">
                         <li>{{cust.city}}</li>
-                        <li><a href="#">View orders</a></li>
+                        <li>
+                            <a ng-if="cust.orderCount > 0" href="#/customerorders/{{cust.id}}">View {{cust.orderCount}} orders</a>
+                            <div ng-if="cust.orderCount == 0 ">No orders</div>
+                        </li>
                     </ul>
                 </div>
             </div>
