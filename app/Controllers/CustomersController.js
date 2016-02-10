@@ -9,9 +9,9 @@ customersApp.controller('CustomersController', function ($scope, customersFactor
         function Init() {
             var tempCustomers = customersFactory.getCustomers();
 
-            for (i = 0; i < tempCustomers.length; i++) {
-                tempCustomers[i].orderCount = ordersFactory.getCustomerOrderCount(tempCustomers[i].id);
-            }
+            //for (i = 0; i < tempCustomers.length; i++) {
+            //    tempCustomers[i].orderCount = ordersFactory.getCustomerOrderCount(tempCustomers[i].id);
+            //}
 
             $scope.customers = tempCustomers;
         }
@@ -38,8 +38,9 @@ customersApp.controller('CustomersController', function ($scope, customersFactor
     }
 );
 
-customersApp.factory('customersFactory', function () {
+//customersApp.factory('customersFactory', function () {
 
+customersApp.factory('customersFactory', ['$http', function ($http) {
     var customers = [
         {id: 1, firstname: 'John', lastname: 'Smith', city: 'New York'},
         {id: 2, firstname: 'John', lastname: ' Doe', city: 'San Francisco'},
@@ -51,8 +52,23 @@ customersApp.factory('customersFactory', function () {
 
     var factory = [];
 
+    //factory.getCustomers = function () {
+    //    return customers;
+    //};
+
     factory.getCustomers = function () {
-        return customers;
+
+        var customers = $http.get('/api/customers');
+
+        //var customers = JSON.parse(jsonCustomers);
+
+        //alert("customers: " + customers);
+
+
+        //console.log("customers: "+customers);
+
+
+        //return $http.get('/api/customers');
     };
 
     factory.getCustomer = function (customerId) {
@@ -94,4 +110,4 @@ customersApp.factory('customersFactory', function () {
 
     return factory;
 
-});
+}]);
