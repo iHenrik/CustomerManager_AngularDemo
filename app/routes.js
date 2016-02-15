@@ -24,41 +24,25 @@ module.exports = function (app) {
 
     app.post('/api/customers', function (req, res) {
 
+        console.log("req params: " + JSON.stringify(req.body, null, 2));
 
-        //console.log("req.body: " + JSON.stringify(req.body, null, 2));
+        if (req.body[0] == undefined) {
+            console.log("req.body is undefined");
+            return;
+        }
 
-        //var customer = JSON.parse ( "[
-        //{
-        //    "firstname": "Firstname",
-        //    "lastname": "Lastname",
-        //    "city": "City"
-        //}
-        //]");
-
-        var customer = JSON.parse(req.body);
-
-        console.log("customer.firstname: " + customer.firstname);
-        console.log("customer.lastname: " + customer.lastname);
-        console.log("customer.city: " + customer.city);
-
-
-
-        var newCustomer = new Customer();
-        newCustomer.firstname = req.body.firstname;
-        newCustomer.lastname = req.body.lastname;
-        newCustomer.city = req.body.city;
-
-        //console.log("newCustomer.firstname: " + newCustomer.firstname);
-        //console.log("newCustomer.lastname: " + newCustomer.lastname);
-        //console.log("newCustomer.city: " + newCustomer.city);
+        var newCustomer = Customer();
+        newCustomer.id = req.body[0].id;
+        newCustomer.firstname = req.body[0].firstname;
+        newCustomer.lastname = req.body[0].lastname;
+        newCustomer.city = req.body[0].city;
 
         //save the customer
-        //newCustomer.save(function (err) {
-        //    if (err) res.send(err);
-        //
-        //    res.send("success");
-        //});
+        newCustomer.save(function (err) {
+            if (err) res.send(err);
 
+            res.send("success");
+        });
     });
 
     app.delete('/api/customers/:customerId', function (req, res) {
