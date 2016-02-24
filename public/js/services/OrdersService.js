@@ -39,7 +39,6 @@ customersApp.service('OrdersService', ['$http', function ($http) {
                     orderCount++;
                 }
             }
-            //console.log("getOrdersCount customerId: " + customerId + " orders: " + orderCount);
             return orderCount;
         });
 

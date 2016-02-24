@@ -10,11 +10,3 @@ module.exports = mongoose.model('order', {
     products:{type: Array},
     totalPrice: {type : Number, default: ''}
 });
-
-//{
-//    id: 1, customerId: 3, customerName: '', products: [
-//    {name: 'DVD: Star Wars 1', unitPrice: 20, quantity: 2},
-//    {name: 'DVD-player', unitPrice: 80.0, quantity: 1},
-//    {name: 'HDMI-cable', unitPrice: 5.50, quantity: 1}
-//], totalPrice: 0
-//}
