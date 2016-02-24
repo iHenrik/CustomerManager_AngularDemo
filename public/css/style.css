@@ -1,0 +1,82 @@
+/*@header-bg-color : 1e88e5*/
+
+#customers.row {
+    margin-bottom: 30px;
+}
+
+.panel-border {
+    border-color: #201c1b;
+    border-radius: 0;
+}
+
+.panel > .panel-header {
+    background-color: #1e88e5;
+    border-radius: 0;
+}
+
+.panel-foreground {
+    color: white;
+}
+
+.delete-object {
+    float: right;
+    color: white;
+    padding: 12px;
+    margin: -12px -15px 0px 0px;
+}
+
+.delete-object:hover, .delete-object:active, .delete-object:focus {
+    color: #d2d2d2;
+    outline: none;
+    text-decoration: none;
+}
+
+.customer-data-list {
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.customer-data-list li {
+    list-style: none;
+    line-height: 25px;
+}
+
+.input-group-lg > .input-control-radius {
+    border-radius: 0px;
+}
+
+.product-table thead tr {
+    background-color: #1e88e5;
+    color: white;
+}
+
+.table > .product-table tbody tr {
+    background-color: #eceff1;
+}
+
+.product-table tbody tr td {
+    padding-left: 12px;
+}
+
+.product-table tfoot tr {
+    background-color: #cfd8dc;
+    font-weight: bold;
+}
+
+.product-table tfoot tr td {
+    padding-left: 12px;
+}
+
+.panel > .table-header {
+    background-color: transparent;
+    border: none;
+    color: #1e88e5;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 0px;
+}
+
+.table .currency-td, .table .currency-th {
+    text-align: right;
+    padding-right: 15px;
+}
