@@ -12,6 +12,14 @@ customersApp.service('CustomerService', ['$http', function ($http) {
 
     };
 
+    this.getCustomer = function () {
+
+        return $http.get('api/customers').then(function (response) {
+            return response;
+        });
+
+    };
+
     this.createCustomer = function (newCustomer) {
 
         return $http.post('api/customers', newCustomer)

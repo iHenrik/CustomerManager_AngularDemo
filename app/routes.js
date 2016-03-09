@@ -22,6 +22,27 @@ module.exports = function (app) {
         });
     });
 
+    app.get('/api/customers/:customerId', function (req, res) {
+
+        // use mongoose to get one customer in the database
+        //Customer.findById({customerId: req.params.customerId}, function (err, customer) {
+        //
+        //    if (err)
+        //        res.send(err);
+        //
+        //    res.json(customer); // return customer in JSON format
+        //});
+
+
+        Customer.findById(req.params.customerId, function(err, bear) {
+            if (err)
+                res.send(err);
+            res.json(customer);
+        });
+
+
+    });
+
     app.post('/api/customers', function (req, res) {
 
         console.log("req params: " + JSON.stringify(req.body, null, 2));
@@ -62,6 +83,19 @@ module.exports = function (app) {
                 res.send(err);
 
             res.json(orders);
+        });
+    });
+
+    //"customerId" : 5.0
+    app.get('/api/orders/:orderId', function (req, res) {
+
+        // use mongoose to get one order in the database
+        Order.findById({customerId: req.params.customerId}, function (err, customer) {
+
+            if (err)
+                res.send(err);
+
+            res.json(customer); // return order in JSON format
         });
     });
 

@@ -2,7 +2,7 @@
  * Created by ismol on 05/02/2016.
  */
 
-customersApp.controller('CustomerOrdersController', function ($scope, $routeParams, ordersFactory, customersFactory) {
+customersApp.controller('CustomerOrdersController', function ($scope, $routeParams, CustomerService, OrdersService) {
 
         Init();
 
@@ -10,23 +10,33 @@ customersApp.controller('CustomerOrdersController', function ($scope, $routePara
 
             var cid = $routeParams.customerId;
 
-            var orders = ordersFactory.getOrders(cid);
+            var orders = OrdersService.getOrdersByCustomerId(cid);
 
-            for (i = 0; i < orders.length; i++) {
+            OrdersService.getOrdersByCustomerId(cid)
+                .then(function (response) {
 
-                if (orders[i].customerName == '') {
-                    var customer = customersFactory.getCustomer(orders[i].customerId);
-                    orders[i].customerName = customer.firstname + " " + customer.lastname;
-                }
-            }
+                    console.log(JSON.stringify( response, null, 2));
 
-            $scope.orders = orders;
+                    $scope.orders = response;
+                });
+
+            //for (i = 0; i < orders.length; i++) {
+            //
+            //    if (orders[i].customerName == '') {
+            //        var customer = customersFactory.getCustomer(orders[i].customerId);
+            //        orders[i].customerName = customer.firstname + " " + customer.lastname;
+            //    }
+            //}
+
+            //$scope.orders = orders;
+
+
         }
 
 
         $scope.addOrder = function () {
 
-            ordersFactory.addOrder(
+            OrdersService.addOrder(
                 //    $scope.newOrder.firstname,
                 //    $scope.newOrder.lastname,
                 //    $scope.newOrder.city
@@ -41,7 +51,7 @@ customersApp.controller('CustomerOrdersController', function ($scope, $routePara
             //var r = confirm("Are you sure to delete order " + orderId);
             //
             //if (r == true) {
-            //    ordersFactory.deleteOrder(orderId);
+            //    OrdersService.deleteOrder(orderId);
             //}
         };
     }
