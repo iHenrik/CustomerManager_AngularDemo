@@ -34,7 +34,7 @@ module.exports = function (app) {
         //});
 
 
-        Customer.findById(req.params.customerId, function(err, bear) {
+        Customer.findById(req.params.customerId, function (err, bear) {
             if (err)
                 res.send(err);
             res.json(customer);
@@ -76,6 +76,17 @@ module.exports = function (app) {
         });
     });
 
+    app.get('/api/customers/:customerId/orders', function (req, res) {
+
+        Order.find({customerId: req.params.customerId}, function (err, customer) {
+
+            if (err)
+                res.send(err);
+
+            res.json(customer); // return order in JSON format
+        });
+    });
+
     app.get('/api/orders', function (req, res) {
 
         Order.find(function (err, orders) {
@@ -83,19 +94,6 @@ module.exports = function (app) {
                 res.send(err);
 
             res.json(orders);
-        });
-    });
-
-    //"customerId" : 5.0
-    app.get('/api/orders/:orderId', function (req, res) {
-
-        // use mongoose to get one order in the database
-        Order.findById({customerId: req.params.customerId}, function (err, customer) {
-
-            if (err)
-                res.send(err);
-
-            res.json(customer); // return order in JSON format
         });
     });
 
